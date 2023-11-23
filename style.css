@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* position: relative; */
+  background-color: #0f1010;
+}
+
+html {
+  font-size: 62.5%;
+}
+.pulse {
+  position: absolute;
+  width: 133px;
+  height: 133px;
+  background-color: #cdcd12;
+  color: #f1f1f1;
+  border-radius: 50%;
+  font-size: 5rem;
+  display: grid;
+  place-items: center;
+}
+
+.pulse i {
+  animation: pulse2 3s infinite ease-in-out;
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(20deg);
+  }
+
+  70% {
+    transform: rotate(-20deg);
+  }
+  /* 75% {
+    transform: rotate(0deg);
+  } */
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.pulse::before,
+.pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #8f6d28;
+  z-index: -1;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.pulse::before {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.pulse::after {
+  animation: pulse 2s 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
